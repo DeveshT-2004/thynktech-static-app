@@ -1,0 +1,336 @@
+/* sample.css - Complete responsive design with flip animations + Search Button */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+}
+
+.hidden { display: none !important; }
+
+/* Welcome Overlay */
+.welcome-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+.welcome-content {
+    text-align: center;
+    color: white;
+    max-width: 600px;
+    padding: 2rem;
+}
+
+.welcome-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.welcome-note {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.enter-btn {
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    color: white;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 30px rgba(255,107,107,0.4);
+}
+
+.enter-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(255,107,107,0.6);
+}
+
+/* Main Content */
+.main-content {
+    padding: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.header {
+    text-align: center;
+    color: white;
+    margin-bottom: 3rem;
+}
+
+.header h1 { font-size: 3rem; margin-bottom: 1rem; }
+.header p { font-size: 1.2rem; opacity: 0.9; }
+
+/* ⭐ UPDATED SEARCH FILTER WITH BUTTON */
+.search-filter {
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.input-group {
+    display: flex;
+    gap: 0;
+    max-width: 700px;
+    margin: 0 auto;
+    border-radius: 50px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+}
+
+#searchInput {
+    flex: 1;
+    padding: 1.2rem 2rem;
+    font-size: 1.1rem;
+    border: none;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(20px);
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+#searchInput::placeholder {
+    color: #888;
+}
+
+#searchInput:focus {
+    background: rgba(255,255,255,1);
+    box-shadow: inset 0 0 0 2px rgba(78,205,196,0.5);
+    transform: translateY(-2px);
+}
+
+#searchBtn {
+    padding: 1.2rem 2.5rem;
+    font-size: 1.1rem;
+    background: linear-gradient(45deg, #4ecdc4, #44a08d);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+#searchBtn:hover {
+    background: linear-gradient(45deg, #44a08d, #4ecdc4);
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(78,205,196,0.6);
+}
+
+#searchBtn:active {
+    transform: translateY(-1px);
+}
+
+/* Cards Grid */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.flip-card {
+    perspective: 1000px;
+    height: 350px;
+    cursor: pointer;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.flip-card.flipped .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+}
+
+.flip-card-front {
+    background: linear-gradient(135deg, white, #f8f9ff);
+    color: #333;
+}
+
+.flip-card-back {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    transform: rotateY(180deg);
+}
+
+.tech-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+.flip-card-front h3,
+.flip-card-back h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.flip-card-back p {
+    text-align: center;
+    line-height: 1.6;
+    opacity: 0.95;
+}
+
+/* AI Response Styles */
+.ai-response {
+    margin: 1.5rem auto 0;
+    max-width: 700px;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 25px 70px rgba(0,0,0,0.3);
+    border-left: 6px solid #4ecdc4;
+    animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.ai-response.hidden { display: none; }
+
+.ai-response h4 {
+    color: #333;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.ai-response p {
+    line-height: 1.7;
+    color: #555;
+    white-space: pre-wrap;
+}
+
+.loading {
+    text-align: center;
+    color: #667eea;
+    font-style: italic;
+    font-size: 1.1rem;
+}
+
+.error-msg {
+    color: #ff6b6b;
+    background: rgba(255,107,107,0.1);
+    border-left-color: #ff6b6b;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    color: rgba(255,255,255,0.8);
+    font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .welcome-content h1 { font-size: 2rem; }
+    .header h1 { font-size: 2.2rem; }
+    
+    .input-group {
+        flex-direction: column;
+        border-radius: 20px;
+    }
+    
+    #searchInput {
+        border-radius: 20px;
+        width: 100%;
+        margin-bottom: 0;
+    }
+    
+    #searchBtn {
+        border-radius: 20px;
+        width: 100%;
+    }
+    
+    .cards-grid { 
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+        gap: 1.5rem; 
+    }
+    
+    .flip-card { height: 300px; }
+    
+    .ai-response {
+        margin: 1rem 1rem 0;
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-content { padding: 1rem; }
+    .header h1 { font-size: 1.8rem; }
+}
+
+#typingText::after {
+    content: "|";
+    animation: blink 1s infinite;
+    margin-left: 3px;
+}
+
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.aws-link {
+    display: inline-block;
+    margin-top: 8px;
+    font-size: 14px;
+    color: #ff9900;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+.aws-link:hover {
+    text-decoration: underline;
+    transform: translateX(4px);
+}
