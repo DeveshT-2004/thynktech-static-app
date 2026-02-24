@@ -1,8 +1,8 @@
-# ThynkTech Static Website Deployment
+
 
 ## Project Overview
 
-The **ThynkTech Static Website Deployment** project demonstrates the deployment of a static web application using cloud infrastructure and automated CI/CD practices.
+The  project demonstrates the deployment of a static web application using cloud infrastructure and automated CI/CD practices.
 
 The project involves hosting a website built with **HTML, CSS, and JavaScript** on an AWS cloud server. The application is deployed on an **Amazon EC2 instance**, where the website files are served using the **NGINX web server**.
 
