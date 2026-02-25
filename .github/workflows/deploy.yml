@@ -13,6 +13,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
+      - name: Replace API key
+        run: |
+          sed -i "s/__API_KEY__/${{ secrets.GOOGLE_API_KEY }}/g" script.js
+
       - name: Setup SSH
         run: |
           mkdir -p ~/.ssh
@@ -25,4 +29,3 @@ jobs:
             cd /var/www/thynktech-static-app
             git pull origin main
           EOF
-
