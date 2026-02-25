@@ -1,5 +1,5 @@
 // 🔐 PASTE YOUR AI STUDIO KEY HERE
-const GEMINI_API_KEY = "__API_KEY__";
+const GEMINI_API_KEY = "AIzaSyAb5yXau1DVcUGoajVhilwTXaMrb83QIkw";
 
 // 🎯 Use the available Gemini model
 
